@@ -23,6 +23,10 @@ spec:
     - --client-ca-file=/etc/kubernetes/ssl/ca.pem
     - --service-account-key-file=/etc/kubernetes/ssl/apiserver-key.pem
     - --cloud-provider=aws
+    - --authorization-mode=ABAC
+    - --authorization-policy-file=/storage/kubernetes/authz/authorization.json
+    - --token-auth-file=/storage/kubernetes/authn/tokens.csv
+    - --v=2
     ports:
     - containerPort: 443
       hostPort: 443
